@@ -3,12 +3,14 @@ package com.automation.pages;
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.ConfigurationReader;
 import com.automation.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
+
     @FindBy(id = "prependedInput")
     private WebElement username;
 //    public WebElement username2 = Driver.getDriver().findElement(By.id("prependedInput"));
@@ -25,10 +27,6 @@ public class LoginPage {
     @FindBy(css = "[class='alert alert-error']")
     private WebElement warningMessage;
 
-    public String getWarningMessage(){
-        return warningMessage.getText();
-    }
-
     public LoginPage() {
         //to connect our webdriver, page class and page factory
         //PageFactory - used to use @FindBy annotations
@@ -36,13 +34,18 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    public String getWarningMessage() {
+        return warningMessage.getText();
+    }
+
     /**
      * Method to login, version #1
      * Login as a specific user
+     *
      * @param usernameValue
      * @param passwordValue
      */
-    public void login(String usernameValue, String passwordValue){
+    public void login(String usernameValue, String passwordValue) {
         username.sendKeys(usernameValue);
         password.sendKeys(passwordValue, Keys.ENTER);
         BrowserUtils.wait(3);
@@ -53,10 +56,9 @@ public class LoginPage {
      * Login as a default user
      * Credentials will be retrieved from configuration.properties file
      */
-    public void login(){
+    public void login() {
         username.sendKeys(ConfigurationReader.getProperty("store_manager"));
         password.sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
         BrowserUtils.wait(3);
     }
-
 }
