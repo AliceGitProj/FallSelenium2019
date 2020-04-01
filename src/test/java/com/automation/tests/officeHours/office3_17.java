@@ -1,4 +1,4 @@
-package com.automation.tests.vytrack.activities;
+package com.automation.tests.officeHours;
 
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;

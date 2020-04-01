@@ -17,8 +17,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class CalendarEventsPageTests {
-    private By usernameBy = By.id("prependedInput");
-    private By passwordBy = By.id("prependedInput2");
+    private By usernameBy = By.id("pretendedInput");
+    private By passwordBy = By.id("pretendedInput2");
     private WebDriver driver;
     private Actions actions;
     private String storeManagerUserName="storemanager85";

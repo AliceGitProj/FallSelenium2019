@@ -16,10 +16,13 @@ public class NewVehiclesTests {
         public void verifyTitle(){
             LoginPage loginPage = new LoginPage();
             VehiclesPage vehiclesPage = new VehiclesPage();
+
             loginPage.login();
             vehiclesPage.navigateTo("Fleet", "Vehicles");
+
             String expectedTitle = "All - Car - Entities - System - Car - Entities - System";
             String actualTitle = Driver.getDriver().getTitle();
+
             Assert.assertEquals(actualTitle, expectedTitle);
         }
     }
