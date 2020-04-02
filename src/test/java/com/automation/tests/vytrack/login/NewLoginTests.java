@@ -33,7 +33,7 @@ public class NewLoginTests extends AbstractTestBase {
         test= report.createTest("Verify warning message");
         LoginPage loginPage = new LoginPage();
         loginPage.login("wrong", "wrong");
-        Assert.assertEquals(loginPage.getWarningMessage(), "Invalid user name or password.");
+        Assert.assertEquals(loginPage.getWarningMessage(), "Invalid user name or passwor.");
         //take a screenshot
         BrowserUtils.getScreenshot("warning_message");
         test.pass("Warning message is displayed");

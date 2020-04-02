@@ -76,13 +76,16 @@ public class BrowserUtils {
      */
     public static String getScreenshot(String name){
         //adding date and time to screenshot name, to make screenshot unique
-        name = new Date().toString().replace(" ","_").replace(":","-")+"_"+name;
-        String path ="";
-        if(System.getProperty("os.name").toLowerCase().contains("mac")){
-            path=System.getProperty("user.dir"+"/test-output/screenshots/"+name+".png");
-        }else {
-            path=System.getProperty("user.dir")+"\\test-output\\screenshots\\"+name+".png";
-        }
+        //name = new Date().toString().replace(" ","_").replace(":","-")+"_"+name;
+        name = new Date().toString().replace(":", "_") + "_" + name;
+
+        //String path ="";
+        String path = System.getProperty("user.dir") + "/test-output/screenshots/" + name + ".png";
+//        if(System.getProperty("os.name").toLowerCase().contains("mac")){
+//            path=System.getProperty("user.dir"+"/test-output/screenshots/"+name+".png");
+//        }else {
+//            path=System.getProperty("user.dir")+"\\test-output\\screenshots\\"+name+".png";
+//        }
         System.out.println("Screenshot is here"+path);
         TakesScreenshot takesScreenshot =(TakesScreenshot)Driver.getDriver();
         //screenshot of web browser, and save it as a  file
